@@ -4,6 +4,6 @@ const db = mysql.createConnection({
     user:'root',
     password:'',
     database:'dbfasi'
-})
+});
 
 module.exports = db
