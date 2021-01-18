@@ -1,14 +1,9 @@
 const express = require('express');
 const app = express(); // objeto app
-const mysql = require('mysql')
 const cors = require('cors');
+const db = require('./database');
 
-const db = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'dbfasi'
-})
+app.set('port', process.env.PORT || 4000 );
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +23,6 @@ app.post('/' , (req, res) => {
     });
 });
 
-app.listen(4000, () => {
+app.listen(app.get('port'), () => {
   console.log("listening")
 });
